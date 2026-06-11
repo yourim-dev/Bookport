@@ -12,6 +12,9 @@ export interface Book {
   id: string;
   title: string;
   author: string;
+  publisher?: string;
+  publishYear?: string;
+  isbn?: string;
   cover?: string;
   totalPages: number;
   currentPage: number;

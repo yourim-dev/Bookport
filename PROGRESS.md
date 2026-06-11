@@ -1,6 +1,6 @@
 # Bookport 작업 현황
 
-> 마지막 업데이트: 2026-06-12
+> 마지막 업데이트: 2026-06-12 (2차)
 
 ---
 
@@ -76,7 +76,7 @@ bookport-app/
 | AddLog | `/books/:id/add-log` | 독서 기록 추가 |
 | SearchBook | `/books/search` | ✅ 2026-06-12 구현 — 검색창 UI, 빈 상태, 직접 추가 연결 (API 미연동) |
 | ManualAdd v2 | `/books/add?mode=search` | ✅ 2026-06-12 구현 — 검색 결과 자동 입력, currentPage/startedAt/status 입력 |
-| ManualAdd v3 | `/books/add?mode=manual` | ✅ 2026-06-12 구현 — 전체 필드 직접 입력 |
+| ManualAdd v3 | `/books/add?mode=manual` | ✅ 2026-06-12 구현 → 2026-06-12 피그마 디자인 적용 — 표지 업로드, 탑승권 모티프 퍼포레이션, 전체 필드(제목/저자/출판사/출간연도/ISBN/전체페이지/현재페이지/시작일/상태), 비행 진행률 미리보기, 등록하기 버튼 |
 
 ### ❌ 미구현
 
