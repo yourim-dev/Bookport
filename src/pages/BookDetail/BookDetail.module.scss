@@ -1,0 +1,522 @@
+@use '../../styles/variables' as *;
+
+.page {
+  padding-top: calc($top-app-bar-height + $spacing-lg);
+  padding-bottom: $spacing-2xl;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  min-height: 100dvh;
+}
+
+// ─── Not found ────────────────────────────────────────────────
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  min-height: 60dvh;
+  text-align: center;
+  color: $color-text-sub;
+  font-size: $font-size-md;
+}
+
+// ─── Shared card shell ────────────────────────────────────────
+%card {
+  background: $color-surface;
+  border: 1px solid #dfe3e6;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(26, 43, 60, 0.1);
+}
+
+// ─── Section 1: Journey Pass ──────────────────────────────────
+.journeyPass {
+  @extend %card;
+}
+
+.passTop {
+  position: relative;
+  background: linear-gradient(to right, #d7e7f5 40%, transparent 40%);
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  min-height: 156px;
+  align-items: flex-start;
+}
+
+.coverBox {
+  flex-shrink: 0;
+  width: 80px;
+  height: 120px;
+  background: $color-filter-inactive-bg;
+  border: 1px solid #dfe3e6;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #c8d8e4;
+}
+
+.passInfo {
+  flex: 1;
+  min-width: 0;
+  padding-top: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: $radius-full;
+  background: #d5e5f3;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: #909191;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+}
+
+.bookTitle {
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  color: #171c1f;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bookAuthor {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: #44474c;
+  letter-spacing: 0.01em;
+}
+
+.lastReadRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #44474c;
+  font-size: $font-size-xs;
+
+  svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    color: #44474c;
+  }
+}
+
+.passBottom {
+  background: #f6fafd;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.passField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &.right {
+    text-align: right;
+    align-items: flex-end;
+  }
+}
+
+.fieldLabel {
+  font-family: $font-family-num;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: #44474c;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.fieldValue {
+  font-family: $font-family-num;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: #171c1f;
+  letter-spacing: 0.01em;
+}
+
+// ─── Section 2: Progress ──────────────────────────────────────
+.progressCard {
+  @extend %card;
+  padding: 16px;
+}
+
+.progressHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: $spacing-lg;
+}
+
+.progressTitle {
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  color: #171c1f;
+  align-self: flex-end;
+}
+
+.progressNums {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.progressPct {
+  font-family: $font-family-num;
+  font-size: 32px;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.progressPages {
+  font-family: $font-family-num;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: #44474c;
+  letter-spacing: 0.01em;
+  text-align: right;
+}
+
+// ─── Flight route bar ─────────────────────────────────────────
+.flightBar {
+  position: relative;
+  height: 46px;
+  margin-bottom: $spacing-sm;
+}
+
+.flightTrack {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22px;
+  height: 2px;
+  background: $color-progress-track;
+  border-radius: $radius-full;
+}
+
+.flightFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: $color-text;
+  border-radius: $radius-full;
+}
+
+.flightAnchor {
+  position: absolute;
+  top: 22px;
+  transform: translateX(-50%);
+}
+
+.planeCircle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: $radius-full;
+  background: $color-surface;
+  border: 1px solid #dfe3e6;
+  box-shadow: $shadow-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -15px;
+  left: -15px;
+
+  svg {
+    width: 17px;
+    height: 17px;
+    color: $color-text;
+  }
+}
+
+.redDot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: $radius-full;
+  background: #ba1a1a;
+  top: 18px;
+  left: -3px;
+}
+
+.routeLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.routeLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: #44474c;
+  letter-spacing: 0.05em;
+}
+
+// ─── Action buttons ───────────────────────────────────────────
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+}
+
+.btnPrimary {
+  height: 44px;
+  border-radius: $radius-full;
+  background: $color-text;
+  color: $color-surface;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: opacity $transition-fast;
+
+  svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
+
+.btnSecondary {
+  height: 44px;
+  border-radius: $radius-full;
+  background: #e5e9ec;
+  color: #171c1f;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background $transition-fast;
+
+  svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  &:hover {
+    background: #d5d9dc;
+  }
+}
+
+// ─── Section 3: Recent Summary ────────────────────────────────
+.summaryCard {
+  background: $color-primary;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(26, 43, 60, 0.1);
+  padding: 24px;
+  position: relative;
+  min-height: 200px;
+}
+
+.summaryDeco {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 132px;
+  height: 132px;
+  opacity: 0.08;
+  background: radial-gradient(circle at center, #ffffff 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(20%, -20%);
+}
+
+.summaryHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: $spacing-md;
+
+  svg {
+    width: 14px;
+    height: 18px;
+    color: $color-surface;
+  }
+}
+
+.summaryTitle {
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  color: $color-surface;
+  line-height: 1.4;
+}
+
+.summaryText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: #b7c8de;
+  line-height: 1.6;
+}
+
+.summaryEmpty {
+  font-size: $font-size-md;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+// ─── Section 4: Flight Log Timeline ──────────────────────────
+.logCard {
+  @extend %card;
+  padding: 24px;
+}
+
+.logHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: $spacing-lg;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    color: $color-text;
+  }
+}
+
+.logTitle {
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  color: #171c1f;
+}
+
+// Timeline
+.logList {
+  position: relative;
+  padding-left: 28px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    bottom: 0;
+    width: 1px;
+    background: $color-border;
+  }
+}
+
+.logItem {
+  position: relative;
+  margin-bottom: $spacing-lg;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Timeline dot
+  &::before {
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: $radius-full;
+    background: $color-primary;
+    border: 2px solid $color-surface;
+    box-shadow: 0 0 0 1.5px $color-primary;
+  }
+}
+
+.logMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.logDate {
+  font-family: $font-family-num;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: #171c1f;
+  letter-spacing: 0.01em;
+}
+
+.logPageRange {
+  padding: 2px 8px;
+  border-radius: $radius-full;
+  background: #eaeef1;
+  font-family: $font-family-num;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  color: #44474c;
+  letter-spacing: 0.05em;
+}
+
+.logNote {
+  background: #f6fafd;
+  border: 1px solid #e5e9ec;
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: #44474c;
+  line-height: 1.6;
+}
+
+// Empty log state
+.logEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-xl 0;
+  text-align: center;
+  color: $color-text-sub;
+  font-size: $font-size-md;
+}
+
+.logEmptyBtn {
+  height: 40px;
+  padding: 0 $spacing-lg;
+  border-radius: $radius-full;
+  background: $color-primary;
+  color: $color-surface;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}

@@ -1,0 +1,252 @@
+@use '../../styles/variables' as *;
+
+.page {
+  min-height: 100dvh;
+  background: $color-bg;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+// ─── Header ───────────────────────────────────────────────────
+.header {
+  flex-shrink: 0;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+}
+
+.skipBtn {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: #51606c;
+  letter-spacing: 0.05em;
+  padding: 4px 0;
+}
+
+// ─── Carousel ─────────────────────────────────────────────────
+.carouselArea {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+}
+
+.track {
+  display: flex;
+  gap: 16px;
+  padding: 0 20px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  align-items: center;
+}
+
+// ─── Card ─────────────────────────────────────────────────────
+.card {
+  flex-shrink: 0;
+  height: 500px;
+  background: $color-surface;
+  border: 1px solid #c4c6cd;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px -4px rgba(4, 22, 39, 0.05);
+}
+
+.imageHeader {
+  position: relative;
+  height: 224px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.illustration {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.imageGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.6) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 8px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 4px;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    color: $color-text;
+  }
+}
+
+.badgeText {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+// ─── Ticket divider ───────────────────────────────────────────
+.ticketDivider {
+  position: relative;
+  height: 32px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 50%;
+    border-top: 1px dashed rgba(196, 198, 205, 0.6);
+  }
+}
+
+.notch {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: $color-bg;
+  border-radius: $radius-full;
+  top: 0;
+
+  &.left {
+    left: -16px;
+    border-right: 1px solid #c4c6cd;
+  }
+
+  &.right {
+    right: -16px;
+    border-left: 1px solid #c4c6cd;
+  }
+}
+
+// ─── Content ──────────────────────────────────────────────────
+.content {
+  padding: 20px 24px;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: $font-weight-medium;
+  color: #171c1f;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.body {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: #51606c;
+  line-height: 1.6;
+}
+
+// ─── Footer ───────────────────────────────────────────────────
+.footer {
+  flex-shrink: 0;
+  padding: 16px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+// ─── Flight route pagination ──────────────────────────────────
+.pagination {
+  position: relative;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationTrack {
+  position: relative;
+  width: 200px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    top: 50%;
+    margin-top: -0.5px;
+    border-top: 1px dashed #c4c6cd;
+  }
+}
+
+.paginationDot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: $radius-full;
+  background: #c4c6cd;
+  transform: translateX(-50%);
+  transition: opacity $transition-normal;
+}
+
+.paginationActive {
+  position: absolute;
+  width: 40px;
+  height: 24px;
+  border-radius: $radius-full;
+  background: $color-text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  transform: translateX(-50%);
+  transition: left $transition-normal;
+
+  svg {
+    width: 13px;
+    height: 13px;
+    color: $color-surface;
+  }
+}
+
+// ─── Action button ────────────────────────────────────────────
+.actionBtn {
+  width: 100%;
+  height: 64px;
+  border-radius: $radius-full;
+  background: $color-primary;
+  color: $color-surface;
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  box-shadow: 0 4px 6px rgba(26, 43, 60, 0.15);
+  transition: opacity $transition-fast;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

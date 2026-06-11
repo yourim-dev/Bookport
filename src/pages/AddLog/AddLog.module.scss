@@ -1,0 +1,189 @@
+@use '../../styles/variables' as *;
+
+.page {
+  background: $color-bg;
+  min-height: 100dvh;
+  padding-top: calc($top-app-bar-height + 40px);
+  padding-bottom: $spacing-2xl;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  min-height: 60dvh;
+  color: $color-text-sub;
+  font-size: $font-size-md;
+}
+
+// ─── Summary Card ─────────────────────────────────────────────
+.summaryCard {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(26, 43, 60, 0.1);
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.coverBox {
+  flex-shrink: 0;
+  width: 64px;
+  height: 96px;
+  background: $color-filter-inactive-bg;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #c8d8e4;
+}
+
+.bookInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bookTitle {
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  color: #171c1f;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bookAuthor {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: #44474c;
+  letter-spacing: 0.01em;
+}
+
+.progressInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: $font-size-xs;
+  color: $color-text;
+  letter-spacing: 0.05em;
+
+  svg {
+    width: 9px;
+    height: 12px;
+    flex-shrink: 0;
+  }
+
+  strong {
+    font-weight: $font-weight-bold;
+  }
+}
+
+// ─── Input Card ───────────────────────────────────────────────
+.inputCard {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: 0 2px 2px rgba(26, 43, 60, 0.1);
+  overflow: hidden;
+}
+
+.cardAccentBar {
+  height: 4px;
+  background: $color-text;
+  border-radius: $radius-md $radius-md 0 0;
+}
+
+.cardInner {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  color: #171c1f;
+  line-height: 1.4;
+}
+
+// ─── Fields ───────────────────────────────────────────────────
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: #44474c;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.textarea {
+  width: 100%;
+  background: #f6fafd;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  padding: 10px $spacing-md;
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  line-height: 1.6;
+  resize: none;
+  transition: border-color $transition-fast, background $transition-fast;
+
+  &::placeholder {
+    color: #74777d;
+    font-size: $font-size-xs;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    background: $color-surface;
+    outline: none;
+  }
+}
+
+// ─── Submit button ────────────────────────────────────────────
+.submitBtn {
+  width: 100%;
+  height: 56px;
+  border-radius: $radius-full;
+  background: $color-text;
+  color: $color-surface;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}

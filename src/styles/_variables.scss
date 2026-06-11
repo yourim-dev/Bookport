@@ -1,0 +1,82 @@
+// ─── Colors (Figma-aligned) ───────────────────────────────────
+$color-primary:   #1a2b3c;
+$color-accent:    #C8A96E;
+$color-bg:        #f6fafd;
+$color-surface:   #ffffff;
+$color-text:      #041627;
+$color-text-sub:  #74777d;
+$color-border:    #e1e9f0;
+$color-error:     #ba1a1a;
+$color-success:   #4CAF50;
+
+// ─── Boarding Pass Card ───────────────────────────────────────
+$color-progress-track:       #d7e7f5;
+$color-badge-on-time-bg:     #d5e5f3;
+$color-badge-on-time-text:   #0e1d27;
+$color-badge-delayed-bg:     #ffdad6;
+$color-badge-delayed-text:   #93000a;
+
+// ─── Chips ────────────────────────────────────────────────────
+$color-chip-neutral-bg:   #e5e9ec;
+$color-chip-neutral-text: #171c1f;
+$color-chip-info-bg:      #d5e5f3;
+$color-chip-info-text:    #576672;
+$color-chip-warn-bg:      #ffdad6;
+$color-chip-warn-text:    #93000a;
+
+// ─── Filter Buttons ───────────────────────────────────────────
+$color-filter-active-bg:     #1a2b3c;
+$color-filter-active-text:   #8192a7;
+$color-filter-inactive-bg:   #eaeef1;
+$color-filter-inactive-text: #44474c;
+$color-filter-border:        #c4c6cd;
+
+// ─── Typography ───────────────────────────────────────────────
+$font-family-base: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-num:  'Inter', 'SF Pro Display', system-ui, sans-serif;
+$font-size-xs:   12px;
+$font-size-sm:   14px;
+$font-size-md:   16px;
+$font-size-lg:   18px;
+$font-size-xl:   22px;
+$font-size-2xl:  28px;
+$font-size-3xl:  32px;
+
+$font-weight-regular: 400;
+$font-weight-medium:  500;
+$font-weight-semi:    600;
+$font-weight-bold:    700;
+
+// ─── Spacing ──────────────────────────────────────────────────
+$spacing-xs:  4px;
+$spacing-sm:  8px;
+$spacing-md:  16px;
+$spacing-lg:  24px;
+$spacing-xl:  32px;
+$spacing-2xl: 48px;
+
+// ─── Border Radius ────────────────────────────────────────────
+$radius-sm:   6px;
+$radius-md:   12px;
+$radius-lg:   20px;
+$radius-full: 9999px;
+
+// ─── Shadows ──────────────────────────────────────────────────
+$shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-card: 0 2px 4px rgba(26, 43, 60, 0.1);
+$shadow-md:   0 4px 16px rgba(0, 0, 0, 0.12);
+
+// ─── Layout ───────────────────────────────────────────────────
+$top-app-bar-height:    64px;
+$bottom-nav-bar-height: 84px;
+$max-content-width:     480px;
+
+// ─── Transitions ──────────────────────────────────────────────
+$transition-fast:   0.15s ease;
+$transition-normal: 0.25s ease;
+
+// ─── Z-index ──────────────────────────────────────────────────
+$z-bottom-nav: 100;
+$z-top-bar:    100;
+$z-modal:      200;
+$z-toast:      300;

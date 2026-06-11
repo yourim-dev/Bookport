@@ -1,0 +1,318 @@
+@use '../../styles/variables' as *;
+
+.page {
+  min-height: 100dvh;
+  background: $color-bg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-lg $spacing-md;
+}
+
+.inner {
+  width: 100%;
+  max-width: 390px;
+}
+
+// ─── Header ───────────────────────────────────────────────────
+.header {
+  text-align: center;
+  margin-bottom: $spacing-lg;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    color: $color-text;
+  }
+}
+
+.brandName {
+  font-family: $font-family-num;
+  font-size: 32px;
+  font-weight: 900;
+  color: $color-text;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  color: #171c1f;
+  margin-bottom: $spacing-sm;
+}
+
+.subtitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: #44474c;
+}
+
+// ─── Card ─────────────────────────────────────────────────────
+.card {
+  background: $color-surface;
+  border: 1px solid #dfe3e6;
+  border-radius: $radius-md;
+  box-shadow: 0 4px 12px rgba(26, 43, 60, 0.1);
+  overflow: hidden;
+  margin-bottom: $spacing-lg;
+}
+
+// ─── Top perforation decoration ───────────────────────────────
+.topDecoration {
+  height: 16px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px dashed #b9c9d6;
+  }
+}
+
+// ─── Form fields ──────────────────────────────────────────────
+.formSection {
+  padding: $spacing-lg $spacing-lg $spacing-md;
+}
+
+.field {
+  margin-bottom: $spacing-md;
+}
+
+.label {
+  display: block;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: #51606c;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: $spacing-sm;
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  height: 38px;
+  padding: 0 $spacing-md;
+  background: #f0f4f7;
+  border: 1px solid #dfe3e6;
+  border-radius: $radius-sm;
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  transition: border-color $transition-fast;
+
+  &::placeholder {
+    color: #6b7280;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    background: $color-surface;
+  }
+
+  &.withToggle {
+    padding-right: 44px;
+  }
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #74777d;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-text;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// ─── Perforation divider ──────────────────────────────────────
+.divider {
+  position: relative;
+  height: 1px;
+  margin: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-top: 1px dashed #b9c9d6;
+  }
+}
+
+.notch {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: $color-bg;
+  border-radius: $radius-full;
+  top: -12px;
+
+  &.left {
+    left: -12px;
+    border-right: 1px solid #dfe3e6;
+  }
+
+  &.right {
+    right: -12px;
+    border-left: 1px solid #dfe3e6;
+  }
+}
+
+// ─── Bottom section (social + terms + submit) ─────────────────
+.bottomSection {
+  background: #f0f4f7;
+  padding: $spacing-md $spacing-lg $spacing-lg;
+}
+
+.socialLabel {
+  display: block;
+  text-align: center;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: #44474c;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.socialButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+}
+
+.socialBtn {
+  height: 38px;
+  border-radius: $radius-full;
+  font-family: $font-family-num;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &.google {
+    background: $color-surface;
+    border: 1px solid $color-border;
+    color: $color-text;
+    box-shadow: 0 2px 2px rgba(26, 43, 60, 0.05);
+  }
+
+  &.apple {
+    background: $color-text;
+    color: $color-surface;
+    box-shadow: 0 2px 2px rgba(26, 43, 60, 0.05);
+  }
+}
+
+// ─── Terms checkbox ───────────────────────────────────────────
+.termsRow {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: $color-primary;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.termsText {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  color: #171c1f;
+  line-height: 1.5;
+  cursor: pointer;
+
+  a {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}
+
+// ─── Submit button ────────────────────────────────────────────
+.submitBtn {
+  width: 100%;
+  height: 47px;
+  border-radius: $radius-full;
+  background: $color-text;
+  color: $color-surface;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  transition: opacity $transition-fast;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  &:hover:not(:disabled) {
+    opacity: 0.88;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+// ─── Footer ───────────────────────────────────────────────────
+.footer {
+  text-align: center;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: #44474c;
+
+  a {
+    color: $color-text;
+    font-weight: $font-weight-medium;
+  }
+}

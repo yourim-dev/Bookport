@@ -1,0 +1,215 @@
+@use '../../../styles/variables' as *;
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+}
+
+// ─── Upper section ────────────────────────────────────────────
+.upper {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  padding-bottom: $spacing-lg;
+}
+
+.coverWrap {
+  flex-shrink: 0;
+  width: 64px;
+  height: 96px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: $color-progress-track;
+}
+
+.meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 12px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacing-sm;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: $radius-full;
+  font-family: $font-family-num;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semi;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+
+  &.onTime {
+    background: $color-badge-on-time-bg;
+    color: $color-badge-on-time-text;
+  }
+
+  &.delayed {
+    background: $color-badge-delayed-bg;
+    color: $color-badge-delayed-text;
+  }
+}
+
+.author {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-filter-inactive-text;
+  line-height: 1.4;
+}
+
+.lastRead {
+  font-size: $font-size-xs;
+  color: #51606c;
+  letter-spacing: 0.01em;
+}
+
+// ─── Divider (boarding pass tear line) ────────────────────────
+.divider {
+  position: relative;
+  height: 1px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: $spacing-md;
+    right: $spacing-md;
+    border-top: 1px dashed $color-progress-track;
+  }
+}
+
+.notchLeft,
+.notchRight {
+  position: absolute;
+  top: -8px;
+  width: 16px;
+  height: 16px;
+  background: $color-bg;
+  border-radius: $radius-full;
+}
+
+.notchLeft {
+  left: -8px;
+  border-right: 1px solid $color-border;
+}
+
+.notchRight {
+  right: -8px;
+  border-left: 1px solid $color-border;
+}
+
+// ─── Lower section (progress) ─────────────────────────────────
+.lower {
+  display: flex;
+  align-items: center;
+  padding: $spacing-md;
+  gap: $spacing-sm;
+  height: 74px;
+}
+
+.trackSection {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.track {
+  position: relative;
+  height: 4px;
+  background: $color-progress-track;
+  border-radius: $radius-full;
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: $color-primary;
+  border-radius: $radius-full;
+  transition: width $transition-normal;
+}
+
+.planeWrap {
+  position: absolute;
+  bottom: 8px;
+  transform: translateX(-50%);
+  color: $color-primary;
+  transition: left $transition-normal;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+}
+
+.percent {
+  font-family: $font-family-num;
+  font-size: 24px;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  min-width: 56px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.arrowBtn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  background: $color-filter-inactive-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-filter-inactive-text;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: #dde1e4;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
