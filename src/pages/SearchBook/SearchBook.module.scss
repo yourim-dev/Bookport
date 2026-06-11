@@ -1,0 +1,257 @@
+@use '../../styles/variables' as *;
+
+.page {
+  min-height: 100dvh;
+  padding-top: $top-app-bar-height;
+  padding-bottom: $spacing-2xl;
+  background: $color-bg;
+}
+
+// ─── Search Bar (sticky) ──────────────────────────────────────
+.searchBar {
+  position: sticky;
+  top: $top-app-bar-height;
+  z-index: 10;
+  background: $color-bg;
+  padding: $spacing-md $spacing-md $spacing-sm;
+  border-bottom: 1px solid $color-border;
+}
+
+.searchForm {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.inputWrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIconWrap {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  color: $color-text-sub;
+  pointer-events: none;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding-left: 42px;
+  padding-right: 40px;
+  background: $color-surface;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  font-family: $font-family-base;
+  font-size: $font-size-md;
+  color: $color-text;
+  transition: border-color $transition-fast;
+
+  &::placeholder {
+    color: $color-text-sub;
+    font-size: $font-size-sm;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+}
+
+.clearBtn {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  color: $color-text-sub;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-text;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.searchBtn {
+  flex-shrink: 0;
+  height: 48px;
+  padding: 0 $spacing-md;
+  background: $color-primary;
+  color: $color-surface;
+  border-radius: $radius-md;
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+  transition: opacity $transition-fast;
+
+  &:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    opacity: 0.85;
+  }
+}
+
+// ─── State Boxes (initial / empty) ───────────────────────────
+.stateBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  padding: $spacing-2xl $spacing-lg;
+  text-align: center;
+}
+
+.illustration {
+  width: 80px;
+  height: 80px;
+  color: $color-progress-track;
+}
+
+.stateTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semi;
+  color: $color-text;
+}
+
+.stateDesc {
+  font-size: $font-size-sm;
+  color: $color-text-sub;
+  line-height: 1.6;
+
+  strong {
+    font-weight: $font-weight-medium;
+    color: $color-text;
+  }
+}
+
+.linkBtn {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-primary;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.manualBtn {
+  margin-top: $spacing-sm;
+  height: 48px;
+  padding: 0 $spacing-lg;
+  border-radius: $radius-full;
+  background: $color-primary;
+  color: $color-surface;
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+// ─── Result List ──────────────────────────────────────────────
+.resultList {
+  display: flex;
+  flex-direction: column;
+}
+
+.resultItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: $color-surface;
+  border-bottom: 1px solid $color-border;
+  text-align: left;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $color-bg;
+  }
+}
+
+.coverBox {
+  flex-shrink: 0;
+  width: 48px;
+  height: 68px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: $color-progress-track;
+}
+
+.bookMeta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bookTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bookAuthor {
+  font-size: $font-size-sm;
+  color: $color-text-sub;
+}
+
+.bookPublisher {
+  font-size: $font-size-xs;
+  color: $color-text-sub;
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: $color-text-sub;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}

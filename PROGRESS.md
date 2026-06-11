@@ -1,6 +1,6 @@
 # Bookport 작업 현황
 
-> 마지막 업데이트: 2026-06-11
+> 마지막 업데이트: 2026-06-12
 
 ---
 
@@ -74,13 +74,14 @@ bookport-app/
 | BookDetail | `/books/:id` | 진행바, 최근 요약, 독서 기록 타임라인 |
 | EditProgress | `/books/:id/edit-progress` | 페이지 스테퍼, 진행률 슬라이더 |
 | AddLog | `/books/:id/add-log` | 독서 기록 추가 |
+| SearchBook | `/books/search` | ✅ 2026-06-12 구현 — 검색창 UI, 빈 상태, 직접 추가 연결 (API 미연동) |
+| ManualAdd v2 | `/books/add?mode=search` | ✅ 2026-06-12 구현 — 검색 결과 자동 입력, currentPage/startedAt/status 입력 |
+| ManualAdd v3 | `/books/add?mode=manual` | ✅ 2026-06-12 구현 — 전체 필드 직접 입력 |
 
 ### ❌ 미구현
 
 | 화면 | 라우팅 | 비고 |
 |---|---|---|
-| SearchBook | `/books/search` | 도서 API 연동 포함 |
-| ManualAdd | `/books/add` | 직접 입력 폼 |
 | Archive | `/archive` | 완독 아카이브 |
 | Statistics | `/statistics` | 비행 통계, 차트 |
 | Profile | `/profile` | |
@@ -99,11 +100,16 @@ bookport-app/
 - 앱 최초 진입 → Onboarding → Login
 - 로그인 상태 아닌 경우 → Login 리다이렉트 (PrivateRoute)
 - 프로필 버튼 → 로그인 상태면 /profile, 아니면 /login
+- Dashboard FAB(+) → SearchBook (2026-06-12)
+- Dashboard 빈 상태 버튼 → SearchBook (2026-06-12)
+- SearchBook 결과 선택 → ManualAdd v2 (mode=search) (2026-06-12)
+- SearchBook 직접 추가 버튼 → ManualAdd v3 (mode=manual) (2026-06-12)
+- ManualAdd 저장 → bookStore.addBook() → Dashboard (2026-06-12)
 
 ### ❌ 미연결
-- Dashboard FAB(+) → SearchBook
 - 완독 처리 흐름 (진행률 100% → Archive)
 - BottomNavBar 탭 → 각 화면 (Archive, Statistics, Settings)
+- SearchBook 도서 API 연동 (현재 UI만)
 
 ---
 

@@ -31,6 +31,8 @@ const MainLayout = () => (
 const DETAIL_TITLES: Record<string, string> = {
   'edit-progress': '진행률 수정',
   'add-log': '독서 기록 추가',
+  'search': '도서 검색',
+  'add': '책 추가',
 };
 
 // TopAppBar(뒤로가기 + 경로 기반 타이틀) + 본문, BottomNavBar 없음
@@ -80,17 +82,17 @@ const router = createBrowserRouter([
         children: [
           { path: '/',             element: <Dashboard /> },
           { path: '/archive',      element: <Archive /> },
-          { path: '/search',       element: <SearchBook /> },
           { path: '/statistics',   element: <Statistics /> },
           { path: '/profile',      element: <Profile /> },
           { path: '/settings',     element: <Settings /> },
-          { path: '/add',          element: <ManualAdd /> },
         ],
       },
       // 상세 화면 (TopAppBar 뒤로가기만)
       {
         element: <DetailLayout />,
         children: [
+          { path: '/books/search',             element: <SearchBook /> },
+          { path: '/books/add',                element: <ManualAdd /> },
           { path: '/books/:id',                element: <BookDetail /> },
           { path: '/books/:id/edit-progress',  element: <EditProgress /> },
           { path: '/books/:id/add-log',        element: <AddLog /> },

@@ -89,6 +89,38 @@
   }
 }
 
+// ─── FAB ──────────────────────────────────────────────────────
+.fab {
+  position: fixed;
+  bottom: calc($bottom-nav-bar-height + $spacing-lg);
+  right: $spacing-lg;
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-full;
+  background: $color-primary;
+  color: $color-surface;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $shadow-md;
+  transition: opacity $transition-fast, transform $transition-fast;
+  z-index: 50;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    opacity: 0.88;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
 // ─── Cards ────────────────────────────────────────────────────
 .cardList {
   display: flex;

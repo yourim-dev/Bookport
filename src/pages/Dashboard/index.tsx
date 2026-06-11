@@ -13,6 +13,12 @@ const FILTERS: { key: FilterType; label: string }[] = [
   { key: 'progress', label: '진행률 높은 순' },
 ];
 
+const PlusIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+  </svg>
+);
+
 const EmptyBookIcon = () => (
   <svg className={styles.emptyIcon} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M8 56V12a4 4 0 0 1 4-4h28l16 16v32a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4z" />
@@ -87,6 +93,15 @@ const Dashboard = observer(() => {
         </div>
       )}
 
+      {/* ── FAB ─────────────────────────────────────────── */}
+      <button
+        className={styles.fab}
+        aria-label="책 추가"
+        onClick={() => navigate('/books/search')}
+      >
+        <PlusIcon />
+      </button>
+
       {sortedBooks.length > 0 ? (
         <ul className={styles.cardList}>
           {sortedBooks.map((book) => (
@@ -102,7 +117,7 @@ const Dashboard = observer(() => {
             읽고 있는 책이 없어요.<br />
             책을 추가해볼까요?
           </p>
-          <button className={styles.emptyBtn} onClick={() => navigate('/search')}>
+          <button className={styles.emptyBtn} onClick={() => navigate('/books/search')}>
             책 검색하기
           </button>
         </div>
