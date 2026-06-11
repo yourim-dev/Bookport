@@ -90,10 +90,12 @@
 }
 
 // ─── FAB ──────────────────────────────────────────────────────
+// right 값: 뷰포트가 max-content-width(480px)보다 넓을 때
+// 앱 컨테이너가 중앙 정렬되므로 (뷰포트 - 480px) / 2 + spacing 만큼 오프셋 필요
 .fab {
   position: fixed;
   bottom: calc($bottom-nav-bar-height + $spacing-lg);
-  right: $spacing-lg;
+  right: max(#{$spacing-lg}, calc((100vw - #{$max-content-width}) / 2 + #{$spacing-lg}));
   width: 56px;
   height: 56px;
   border-radius: $radius-full;
