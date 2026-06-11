@@ -1,6 +1,6 @@
 # Bookport 작업 현황
 
-> 마지막 업데이트: 2026-06-09
+> 마지막 업데이트: 2026-06-11
 
 ---
 
@@ -122,6 +122,21 @@ bookport-app/
 - `user: User | null`
 - `login(email, password)`
 - `logout()`
+
+---
+
+## GitHub 저장소
+
+- **저장소**: https://github.com/yourim-dev/Bookport
+- **최초 푸시**: 2026-06-11
+- **브랜치**: `main`
+- **커밋**: `feat: initial project setup - Dashboard, Auth, BookDetail, EditProgress, AddLog`
+
+### ✅ Git 설정 완료 (2026-06-11)
+- .gitignore 업데이트 (`.mcp.json`, `.env`, `*.pem`, `*.key` 등 보안 파일 제외)
+- README.md 프로젝트 정보로 업데이트
+- `npm run push --msg="..."` 스크립트 추가
+- GitHub 초기 푸시 완료
 
 ---
 
