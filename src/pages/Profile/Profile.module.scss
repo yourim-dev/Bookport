@@ -1,0 +1,180 @@
+@use '../../styles/variables' as *;
+
+.page {
+  padding-top: calc(#{$top-app-bar-height} + #{$spacing-xl});
+  padding-bottom: calc(#{$bottom-nav-bar-height} + #{$spacing-lg});
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+// ─── Avatar ───────────────────────────────────────────────────
+.avatarSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  padding-bottom: $spacing-md;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: $radius-full;
+  background: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarInitial {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: #fff;
+  line-height: 1;
+}
+
+.nickname {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semi;
+  color: $color-text;
+  letter-spacing: -0.01em;
+}
+
+.userId {
+  font-size: $font-size-sm;
+  color: $color-text-sub;
+}
+
+.editBtn {
+  margin-top: 4px;
+  height: 34px;
+  padding: 0 $spacing-md;
+  border-radius: $radius-full;
+  border: 1px solid $color-border;
+  background: $color-surface;
+  color: $color-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $color-chip-neutral-bg;
+  }
+}
+
+// ─── Stats Row ────────────────────────────────────────────────
+.statsRow {
+  display: flex;
+  align-items: center;
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  padding: $spacing-md 0;
+}
+
+.statItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statDivider {
+  width: 1px;
+  height: 36px;
+  background: $color-border;
+}
+
+.statValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  font-family: $font-family-num;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-sub;
+  letter-spacing: 0.02em;
+}
+
+// ─── Section ──────────────────────────────────────────────────
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.sectionTitle {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semi;
+  color: $color-text-sub;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-left: 4px;
+}
+
+// ─── Info List ────────────────────────────────────────────────
+.infoList {
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md;
+
+  & + & {
+    border-top: 1px solid $color-border;
+  }
+}
+
+.infoLabel {
+  font-size: $font-size-sm;
+  color: $color-text-sub;
+}
+
+.infoValue {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+}
+
+// ─── Settings Button ──────────────────────────────────────────
+.settingsBtn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md;
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

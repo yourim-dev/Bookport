@@ -254,6 +254,9 @@
 .flightRoute {
   position: relative;
   height: 40px;
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: none;
 }
 
 .flightTrackBg {
@@ -308,8 +311,13 @@
   align-items: center;
   justify-content: center;
   transform: translate(-50%, -50%);
-  transition: left $transition-normal;
   z-index: 2;
+  cursor: grab;
+  pointer-events: none; // 이벤트는 트랙 전체(.flightRoute)가 처리
+
+  &:active {
+    cursor: grabbing;
+  }
 
   svg {
     width: 15px;

@@ -1,0 +1,111 @@
+@use '../../styles/variables' as *;
+
+.page {
+  padding-top: calc(#{$top-app-bar-height} + #{$spacing-lg});
+  padding-bottom: calc(#{$bottom-nav-bar-height} + #{$spacing-lg});
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+  min-height: 100dvh;
+}
+
+// ─── Header ───────────────────────────────────────────────────
+.header {
+  margin-bottom: $spacing-xl;
+}
+
+.heading {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-semi;
+  color: $color-text;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+// ─── Content ──────────────────────────────────────────────────
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+// ─── Section ──────────────────────────────────────────────────
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.sectionTitle {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semi;
+  color: $color-text-sub;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-left: 4px;
+}
+
+// ─── Item List ────────────────────────────────────────────────
+.itemList {
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md;
+  text-align: left;
+  transition: background $transition-fast;
+
+  & + & {
+    border-top: 1px solid $color-border;
+  }
+
+  &:hover:not(:disabled) {
+    background: rgba($color-primary, 0.04);
+  }
+
+  &:active:not(:disabled) {
+    background: rgba($color-primary, 0.08);
+  }
+
+  &.danger {
+    .itemLabel {
+      color: $color-error;
+    }
+
+    svg {
+      stroke: $color-error;
+    }
+  }
+
+  &.disabled {
+    cursor: default;
+  }
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.itemLabel {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+}
+
+.itemDesc {
+  font-size: $font-size-xs;
+  color: $color-text-sub;
+}
+
+svg {
+  flex-shrink: 0;
+  color: $color-text-sub;
+}

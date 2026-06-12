@@ -1,0 +1,158 @@
+@use '../../styles/variables' as *;
+
+.page {
+  padding-top: calc(#{$top-app-bar-height} + #{$spacing-xl});
+  padding-bottom: $spacing-2xl;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+// ─── Avatar Section ───────────────────────────────────────────
+.avatarSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.avatarBtn {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: $radius-full;
+  background: $color-primary;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarInitial {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: #fff;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.avatarOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity $transition-fast;
+
+  .avatarBtn:hover & {
+    opacity: 1;
+  }
+
+  svg {
+    color: #fff;
+  }
+}
+
+.avatarHint {
+  font-size: $font-size-xs;
+  color: $color-text-sub;
+}
+
+// ─── Form ─────────────────────────────────────────────────────
+.formCard {
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semi;
+  color: $color-text-sub;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fieldInput {
+  height: 48px;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  padding: 0 $spacing-md;
+  font-size: $font-size-md;
+  color: $color-text;
+  background: $color-bg;
+  transition: border-color $transition-fast;
+
+  &::placeholder {
+    color: $color-text-sub;
+    opacity: 0.6;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+.fieldCount {
+  font-size: $font-size-xs;
+  color: $color-text-sub;
+  text-align: right;
+}
+
+// ─── Remove Image Button ──────────────────────────────────────
+.removeImgBtn {
+  align-self: center;
+  font-size: $font-size-sm;
+  color: $color-error;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+// ─── Save Button ──────────────────────────────────────────────
+.saveBtn {
+  width: 100%;
+  height: 56px;
+  border-radius: $radius-full;
+  background: $color-primary;
+  color: $color-surface;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  transition: opacity $transition-fast;
+  margin-top: auto;
+
+  &:hover:not(:disabled) {
+    opacity: 0.88;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

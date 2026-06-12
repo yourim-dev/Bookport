@@ -48,6 +48,11 @@
     color: $color-chip-neutral-text;
   }
 
+  &.info {
+    background: $color-chip-info-bg;
+    color: $color-chip-info-text;
+  }
+
   &.warn {
     background: $color-chip-warn-bg;
     color: $color-chip-warn-text;

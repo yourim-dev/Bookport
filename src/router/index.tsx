@@ -15,6 +15,7 @@ import AddLog from '../pages/AddLog';
 import Statistics from '../pages/Statistics';
 import Profile from '../pages/Profile';
 import Settings from '../pages/Settings';
+import ProfileEdit from '../pages/ProfileEdit';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import Onboarding from '../pages/Onboarding';
@@ -33,6 +34,7 @@ const DETAIL_TITLES: Record<string, string> = {
   'add-log': '독서 기록 추가',
   'search': '도서 검색',
   'add': '책 추가',
+  'edit': '프로필 수정',
 };
 
 // TopAppBar(뒤로가기 + 경로 기반 타이틀) + 본문, BottomNavBar 없음
@@ -96,6 +98,7 @@ const router = createBrowserRouter([
           { path: '/books/:id',                element: <BookDetail /> },
           { path: '/books/:id/edit-progress',  element: <EditProgress /> },
           { path: '/books/:id/add-log',        element: <AddLog /> },
+          { path: '/profile/edit',             element: <ProfileEdit /> },
         ],
       },
     ],

@@ -1,0 +1,218 @@
+@use '../../styles/variables' as *;
+
+.page {
+  padding-top: calc(#{$top-app-bar-height} + #{$spacing-lg});
+  padding-bottom: calc(#{$bottom-nav-bar-height} + #{$spacing-lg});
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+  min-height: 100dvh;
+}
+
+// ─── Header ───────────────────────────────────────────────────
+.header {
+  margin-bottom: $spacing-lg;
+}
+
+.heading {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-semi;
+  color: $color-text;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.subheading {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-sub;
+}
+
+// ─── Section ──────────────────────────────────────────────────
+.section {
+  margin-bottom: $spacing-xl;
+}
+
+.sectionTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semi;
+  color: $color-text-sub;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: $spacing-md;
+}
+
+// ─── Stat Grid ────────────────────────────────────────────────
+.statGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-sm;
+}
+
+.statCard {
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &.clickable {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &.accent {
+    background: $color-primary;
+
+    .statValue,
+    .statLabel {
+      color: #fff;
+    }
+
+    .statLabel {
+      opacity: 0.75;
+    }
+  }
+}
+
+.statValue {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text;
+  font-family: $font-family-num;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-sub;
+  letter-spacing: 0.02em;
+}
+
+// ─── Detail List ──────────────────────────────────────────────
+.detailList {
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md;
+
+  & + & {
+    border-top: 1px solid $color-border;
+  }
+}
+
+.detailLabel {
+  font-size: $font-size-sm;
+  color: $color-text-sub;
+}
+
+.detailValue {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semi;
+  color: $color-text;
+  font-family: $font-family-num;
+}
+
+// ─── Progress List ────────────────────────────────────────────
+.progressList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.progressItem {
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $spacing-sm;
+}
+
+.progressTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.progressPct {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  font-family: $font-family-num;
+  flex-shrink: 0;
+}
+
+.trackBar {
+  height: 6px;
+  background: $color-progress-track;
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.trackFill {
+  height: 100%;
+  background: $color-primary;
+  border-radius: $radius-full;
+  transition: width $transition-normal;
+}
+
+.progressMeta {
+  font-size: $font-size-xs;
+  color: $color-text-sub;
+  font-family: $font-family-num;
+}
+
+// ─── Empty ────────────────────────────────────────────────────
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  padding: $spacing-2xl $spacing-md;
+  text-align: center;
+}
+
+.emptyIcon {
+  width: 72px;
+  height: 72px;
+  color: $color-progress-track;
+}
+
+.emptyText {
+  font-size: $font-size-md;
+  color: $color-text-sub;
+  line-height: 1.6;
+}

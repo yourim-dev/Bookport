@@ -32,8 +32,9 @@ const Dashboard = observer(() => {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<FilterType>('recent');
 
-  const readingBooks = bookStore.readingBooks;
-  const longestDays = bookStore.longestNotReadDays;
+  const readingBooks   = bookStore.readingBooks;
+  const weekLogCount   = bookStore.thisWeekLogCount;
+  const longestDays    = bookStore.longestNotReadDays;
 
   const sortedBooks = useMemo(() => {
     const books = [...readingBooks];
@@ -70,7 +71,12 @@ const Dashboard = observer(() => {
             <span className={`${styles.chip} ${styles.neutral}`}>
               읽는 중 {readingBooks.length}권
             </span>
-            {longestDays !== null && longestDays > 0 && (
+            {weekLogCount > 0 && (
+              <span className={`${styles.chip} ${styles.info}`}>
+                이번 주 {weekLogCount}권 기록
+              </span>
+            )}
+            {longestDays !== null && (
               <span className={`${styles.chip} ${styles.warn}`}>
                 가장 오래 안 읽은 책 {longestDays}일 전
               </span>
