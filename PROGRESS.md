@@ -164,8 +164,9 @@ bookport-app/
 
 | 이슈 | 상태 |
 |---|---|
-| Component is not a function (router import 충돌) | 반복 발생, 매번 수동 수정 중 |
-| BookDetail TopAppBar 사라짐 | 수정 요청 중 |
+| ~~Component is not a function (router import 충돌)~~ | ~~반복 발생, 매번 수동 수정 중~~ → 2026-06-12 해결 |
+| ~~BookDetail TopAppBar 사라짐~~ | ~~수정 요청 중~~ → 2026-06-12 해결 |
+| ~~Dashboard '가장 오래 안 읽은 책 N일 전' 962일 날짜 계산 오류~~ | ~~addLog에서 lastReadAt 미갱신~~ → 2026-06-12 해결 |
 | Statistics 읽기 전(대기) 카드 → Dashboard로 이동 (wish 전용 필터 미구현) | Dashboard에 wish 필터 추가 시 개선 예정 |
 
 ---
